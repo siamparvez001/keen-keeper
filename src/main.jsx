@@ -19,6 +19,10 @@ const router = createBrowserRouter(
         {
           path:'/timeline',
           element: <h2>Timeline</h2>
+        },
+        {
+          path:'/stats',
+          element:<h2>Stats</h2>
         }
       ],
       errorElement: <h2>this page is not found</h2>
