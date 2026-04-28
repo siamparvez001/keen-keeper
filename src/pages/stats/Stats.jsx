@@ -19,7 +19,7 @@ const Stats = () => {
     return (
         <div className='bg-gray-100 py-20'>
             <div className='container mx-auto '>
-                <h1 className='text-4xl font-bold my-5'>Friendship Analytics</h1>
+                <h1 className='text-4xl font-bold my-5 mx-10'>Friendship Analytics</h1>
                 <div className='bg-white rounded-2xl px-10 py-5'>
                     <p className='text-2xl opacity-70'>By Interaction Type</p>
                     <div className='flex justify-center items-center my-10 space-y-5'>
