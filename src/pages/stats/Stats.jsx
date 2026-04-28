@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Legend, Pie, PieChart, Tooltip } from 'recharts';
 import { TimelineFriendContext } from '../../context/TimelineFriendContext';
-// import { RechartsDevtools } from '@recharts/devtools';
+
 
 const Stats = () => {
-    // export default function PieChartWithPaddingAngle({ isAnimationActive = true }: { isAnimationActive?: boolean }) {
+    
 
     const { timelineFriend } = useContext(TimelineFriendContext)
     const callCount = timelineFriend.filter(item => item.type === "call").length;

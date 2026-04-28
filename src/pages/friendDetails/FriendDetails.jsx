@@ -9,10 +9,10 @@ import { BsChatSquareText } from "react-icons/bs";
 import { IoVideocamOutline } from "react-icons/io5";
 import { RingLoader } from 'react-spinners';
 import { TimelineFriendContext } from '../../context/TimelineFriendContext';
-// import { toast } from 'react-toastify';
+
 
 const FriendDetails = () => {
-    // const [timelineFriend, setTimelineFriends] = useState([])
+   
     const { timelineFriend, setTimelineFriends } = useContext(TimelineFriendContext)
 
 

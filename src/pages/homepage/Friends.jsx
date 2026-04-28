@@ -3,10 +3,9 @@ import FriendsCard from '../../components/ui/FriendsCard';
 import { RingLoader } from 'react-spinners';
 
 
-// const friendsPromise = fetch('/friendsData.json').then((res) => res.json());
+
 const Friends = () => {
-    // const friends = use(friendsPromise)
-    // console.log(friends)
+    
     const [friends, setFriends] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
