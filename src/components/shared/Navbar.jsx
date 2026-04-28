@@ -20,9 +20,13 @@ const Navbar = () => {
                 </div>
                 <div className="hidden md:flex">
 
-                    <NavLink to={'/'} className={({ isActive }) =>
-                        `font-semibold mr-2 ${isActive ? "bg-green-900 text-white rounded-xl" : ""}`
-                    }>
+                    <NavLink
+                        to="/"
+                        end
+                        className={({ isActive }) =>
+                            `font-semibold mr-2 ${isActive ? "bg-green-900 text-white rounded-xl" : ""}`
+                        }
+                    >
                         <div className='flex items-center gap-2 px-5 py-2'>
                             <RiHome2Line />
                             <h1>Home</h1>
@@ -61,9 +65,14 @@ const Navbar = () => {
                     open && (
                         <div className="absolute right-5 top-16 flex flex-col bg-white shadow-lg rounded-xl p-3  md:hidden">
 
-                            <NavLink to={'/'} onClick={() => setOpen(false)} className={({ isActive }) =>
-                                `font-semibold ${isActive ? "bg-green-900 text-white rounded-xl" : ""}`
-                            }>
+                            <NavLink
+                                to="/"
+                                end
+                                onClick={() => setOpen(false)}
+                                className={({ isActive }) =>
+                                    `font-semibold ${isActive ? "bg-green-900 text-white rounded-xl" : ""}`
+                                }
+                            >
                                 <div className='flex items-center gap-2 px-5 py-2'>
                                     <RiHome2Line />
                                     <h1>Home</h1>
