@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const FriendsCard = ({ friend }) => {
+    
     return (
         <Link to={`/friend/${friend.id}`}>
             <div className='p-4 px-5 py-8 shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded text-center space-y-2 h-full'>

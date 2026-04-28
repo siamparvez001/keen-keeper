@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { HiBellSnooze } from "react-icons/hi2";
 import { FiArchive } from "react-icons/fi";
@@ -8,13 +8,17 @@ import { PiPhoneCall } from "react-icons/pi";
 import { BsChatSquareText } from "react-icons/bs";
 import { IoVideocamOutline } from "react-icons/io5";
 import { RingLoader } from 'react-spinners';
+import { TimelineFriendContext } from '../../context/TimelineFriendContext';
 
 const FriendDetails = () => {
-    const { id } = useParams();
+    // const [timelineFriend, setTimelineFriends] = useState([])
+    const { timelineFriend, setTimelineFriends } = useContext(TimelineFriendContext)
 
+
+
+    const { id } = useParams();
     const [friends, setFriends] = useState([]);
     const [loading, setLoading] = useState(true);
-    
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch('/friendsData.json');
@@ -26,14 +30,43 @@ const FriendDetails = () => {
 
         fetchData();
     }, []);
-
     const expectedFriend = friends.find(
         (friend) => String(friend.id) === id
     );
+
+
+
+    const handleTimelineFriend = (type) => {
+        const newEvent = {
+            ...expectedFriend,
+            type,
+            date: new Date().toLocaleDateString()
+        }
+
+        setTimelineFriends((prev) => {
+            const alreadyExists = prev.find(
+                item => item.id === newEvent.id && item.type === type
+            );
+
+            if (alreadyExists) return prev;
+
+            return [...prev, newEvent];
+        });
+    }
+    // const handleTimelineFriend = () => {
+    //     setTimelineFriends([...timelineFriend, expectedFriend])
+    // }
+    // console.log(timelineFriend)
+
+
     if (loading) return <div className="flex justify-center items-center    my-20">
         <RingLoader color="#064e3b" />
     </div>;
     if (!expectedFriend) return <p>Friend not found</p>;
+
+
+
+
 
     return (
         <div className='container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 my-10'>
@@ -112,18 +145,18 @@ const FriendDetails = () => {
                 <div className='shadow-[0_0_25px_rgba(0,0,0,0.15)] bg-white px-20 py-10 rounded-2xl'>
                     <p className='mb-5'>Quick Check-In</p>
                     <div className='flex justify-between items-center gap-10 '>
-                        <div className='flex justify-center items-center gap-3 px-10 py-5 bg-gray-100 w-full rounded-xl'>
+                        <button className='btn flex  justify-center items-center gap-3 px-10  bg-gray-100  rounded-xl' onClick={handleTimelineFriend("call")}>
                             <PiPhoneCall></PiPhoneCall>
                             <p>Call</p>
-                        </div>
-                        <div className='flex justify-center items-center gap-3 px-10 py-5 bg-gray-100 w-full rounded-xl'>
+                        </button>
+                        <button className='btn flex justify-center items-center gap-3 px-10 py-5 bg-gray-100  rounded-xl' onClick={handleTimelineFriend("text")}>
                             <BsChatSquareText></BsChatSquareText>
                             <p>Text</p>
-                        </div>
-                        <div className='flex justify-center items-center gap-3 px-10 py-5 bg-gray-100 w-full rounded-xl'>
+                        </button>
+                        <button className='btn flex justify-center items-center gap-3 px-10 py-5 bg-gray-100  rounded-xl' onClick={handleTimelineFriend("video")}>
                             <IoVideocamOutline></IoVideocamOutline>
                             <p>Video</p>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

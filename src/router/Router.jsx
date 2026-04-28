@@ -3,6 +3,7 @@ import RootLayout from "../Layout/RootLayout";
 import Home from "../pages/homepage/Home";
 import ErrorPage from "../pages/notFoundpage/ErrorPage";
 import FriendDetails from "../pages/friendDetails/FriendDetails";
+import Timeline from "../pages/timeline/Timeline";
 
 export const router = createBrowserRouter(
     [
@@ -18,7 +19,7 @@ export const router = createBrowserRouter(
                 },
                 {
                     path: '/timeline',
-                    element: <h2>Timeline</h2>
+                    element: <Timeline></Timeline>
                 },
                 {
                     path:'/friend/:id',
