@@ -20,7 +20,7 @@ const Banner = () => {
                         <span className='opacity-70'>Total Friends</span>
                     </div>
                     <div className='flex flex-col justify-center items-center space-y-2 shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl py-10 '>
-                        <span className='text-2xl font-semibold'>3</span>
+                        <span className='text-2xl font-semibold'>4</span>
                         <span className='opacity-70'>On Track</span>
                     </div>
                     <div className='flex flex-col justify-center items-center space-y-2 shadow-[0_0_25px_rgba(0,0,0,0.15)] rounded-2xl py-10 '>
