@@ -9,7 +9,7 @@ import { BsChatSquareText } from "react-icons/bs";
 import { IoVideocamOutline } from "react-icons/io5";
 import { RingLoader } from 'react-spinners';
 import { TimelineFriendContext } from '../../context/TimelineFriendContext';
-
+import { toast } from "react-toastify";
 
 const FriendDetails = () => {
 
@@ -41,20 +41,23 @@ const FriendDetails = () => {
         const newEvent = {
             ...expectedFriend,
             type,
-            date: new Date().toLocaleDateString()
-        }
+            date: new Date().toLocaleString()
+        };
 
         setTimelineFriends((prev) => {
-            const alreadyExists = prev.find(
-                item => item.id === newEvent.id && item.type === type
-            );
-
-            if (alreadyExists) return prev;
-
             return [...prev, newEvent];
         });
 
-    }
+        if (type === "call") {
+            toast.success(`Call with ${expectedFriend.name}`);
+        }
+        else if (type === "text") {
+            toast.success(`Text with ${expectedFriend.name}`);
+        }
+        else if (type === "video") {
+            toast.success(`Video call with ${expectedFriend.name}`);
+        }
+    };
 
 
 
