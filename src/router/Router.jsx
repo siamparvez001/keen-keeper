@@ -27,7 +27,7 @@ export const router = createBrowserRouter(
                     element: <FriendDetails></FriendDetails>
                 },
                 {
-                    path: '/stats',
+                    path: 'stats',
                     element: <Stats></Stats>
                 }
             ],
