@@ -9,6 +9,7 @@ import { BsChatSquareText } from "react-icons/bs";
 import { IoVideocamOutline } from "react-icons/io5";
 import { RingLoader } from 'react-spinners';
 import { TimelineFriendContext } from '../../context/TimelineFriendContext';
+// import { toast } from 'react-toastify';
 
 const FriendDetails = () => {
     // const [timelineFriend, setTimelineFriends] = useState([])
@@ -52,11 +53,9 @@ const FriendDetails = () => {
 
             return [...prev, newEvent];
         });
+        // toast.success("Succesfully added")
     }
-    // const handleTimelineFriend = () => {
-    //     setTimelineFriends([...timelineFriend, expectedFriend])
-    // }
-    // console.log(timelineFriend)
+
 
 
     if (loading) return <div className="flex justify-center items-center    my-20">
@@ -145,15 +144,15 @@ const FriendDetails = () => {
                 <div className='shadow-[0_0_25px_rgba(0,0,0,0.15)] bg-white px-20 py-10 rounded-2xl'>
                     <p className='mb-5'>Quick Check-In</p>
                     <div className='flex justify-between items-center gap-10 '>
-                        <button className='btn flex  justify-center items-center gap-3 px-10  bg-gray-100  rounded-xl' onClick={handleTimelineFriend("call")}>
+                        <button className='btn flex  justify-center items-center gap-3 px-10  bg-gray-100  rounded-xl' onClick={() => handleTimelineFriend("call")}>
                             <PiPhoneCall></PiPhoneCall>
                             <p>Call</p>
                         </button>
-                        <button className='btn flex justify-center items-center gap-3 px-10 py-5 bg-gray-100  rounded-xl' onClick={handleTimelineFriend("text")}>
+                        <button className='btn flex justify-center items-center gap-3 px-10 py-5 bg-gray-100  rounded-xl' onClick={() => handleTimelineFriend("text")}>
                             <BsChatSquareText></BsChatSquareText>
                             <p>Text</p>
                         </button>
-                        <button className='btn flex justify-center items-center gap-3 px-10 py-5 bg-gray-100  rounded-xl' onClick={handleTimelineFriend("video")}>
+                        <button className='btn flex justify-center items-center gap-3 px-10 py-5 bg-gray-100  rounded-xl' onClick={() => handleTimelineFriend("video")}>
                             <IoVideocamOutline></IoVideocamOutline>
                             <p>Video</p>
                         </button>
